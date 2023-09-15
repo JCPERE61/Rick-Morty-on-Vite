@@ -47,6 +47,42 @@ const characters = [
         },
       image: "https://rickandmortyapi.com/api/character/avatar/4.jpeg",
     },
+    {
+      id: 5,
+      name: "Jerry Smith",
+      status: 'Alive',
+      species: "Human",
+      gender: "Male",
+      origin: {
+        name: "Earth (Replacement Dimension)",
+        url: "https://rickandmortyapi.com/api/location/20"
+        },
+      image: "https://rickandmortyapi.com/api/character/avatar/5.jpeg",
+    },
+    {
+      id: 6,
+      name: "Abadango Cluster Princess",
+      status: 'Alive',
+      species: "Alien",
+      gender: "Female",
+      origin: {
+        name: "Abadango",
+        url: "https://rickandmortyapi.com/api/location/2"
+        },
+      image: "https://rickandmortyapi.com/api/character/avatar/6.jpeg",
+    },
+    {
+      id: 7,
+      name: "Abradolf Lincler",
+      status: 'unknown',
+      species: "Human",
+      gender: "Male",
+      origin: {
+        name: "Earth (Replacement Dimension)",
+        url: "https://rickandmortyapi.com/api/location/20"
+        },
+      image: "https://rickandmortyapi.com/api/character/avatar/7.jpeg",
+    },
   ];
   
   export default characters;
