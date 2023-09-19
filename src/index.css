@@ -37,9 +37,9 @@ button {
   border-radius: 8px;
   width: min-content;
   height: min-content;
-  border: 3px solid transparent;
-  padding: 0.05em 0.1em;
-  font-size: 1em;
+  border: 3px solid black;
+  padding: 3px;
+  font-size: 0.75em;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a9a;

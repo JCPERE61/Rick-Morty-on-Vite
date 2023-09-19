@@ -4,7 +4,7 @@ export default function Card({id, name, status, species, gender, origin, image, 
     return (
        <div className={styles.Card}>
          <div id='header'>
-            <button onClick={onClose}>X</button>
+            <button onClick={()=> onClose(id)}>X</button>
          </div>          
           <h1>{name}</h1>
           <img src={image} alt='' />
