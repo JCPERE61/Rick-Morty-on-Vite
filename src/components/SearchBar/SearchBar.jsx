@@ -1,19 +1,23 @@
 import { useState } from 'react';
 import styles from './SearchBar.module.css';
 
-export default function SearchBar(props) {
+export default function SearchBar({onSearch}) {
 
    const [id,setId] = useState('');
+   const[inpId,setInpId] = useState('');
 
    const handleChange = (event) => {
-      setId(event.target.value)
+      setInpId(event.target.value);
+      setId(event.target.value);
    }
 
-   const {onSearch} = props;
-    return (
+   return (
       <div className={styles.searchDiv}>
-        <input onChange={handleChange} placeholder='id' className={styles.input} type='search' />
-        <button onClick={()=>onSearch(id)}>Agregar</button>
+        <input onChange={handleChange} placeholder='id' className={styles.input} type='search' value={inpId}/>
+        <button onClick={()=>{
+         onSearch(id)
+         setInpId('')}
+         }>Agregar</button>
        </div>
     );
  }
