@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import styled from 'styled-components';
 import SearchBar from '../SearchBar/SearchBar';
 
@@ -8,6 +10,12 @@ const DivBar = styled.div`
 export default function Nav({onSearch}) {
     return (
         <DivBar>
+            <button>
+                <Link to={'/about'}>About</Link>
+            </button>
+            <button>
+                <Link to={'/home'}>Home</Link>
+            </button>            
             <SearchBar onSearch={onSearch} />
         </DivBar>        
     )  

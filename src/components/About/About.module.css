@@ -1,0 +1,35 @@
+.smsan {
+    justify-content: center;
+}
+
+.smsan img {
+    height: 168px;
+    width:299px;
+}
+
+.auth {
+    justify-content: center;
+}
+
+.auth img {
+    height:159px;
+    width:318px;
+}
+
+.Dan {
+    justify-content: center;
+}
+
+.Dan img {
+    height:161px;
+    width:312px;
+}
+
+.guest {
+    justify-content: center;
+}
+
+.guest img {
+    height:168px;
+    width:300px;
+}
