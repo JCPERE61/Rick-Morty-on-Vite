@@ -17,6 +17,9 @@ export default function Nav({onSearch}) {
                 <Link to={'/home'}>Home</Link>
             </button>            
             <SearchBar onSearch={onSearch} />
+            <button>
+                <Link to={'/favorites'}>Favorites</Link>
+            </button>
         </DivBar>        
     )  
     
