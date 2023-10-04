@@ -13,10 +13,12 @@ function rootReducer(state=initialState,{type,payload}) {
         case REMOVE_FAV:
             return {
                 ...state,
-                myFavorites:state.myFavorites.filter( character => character.id !== payload)}
+                myFavorites:state.myFavorites.filter( character => character.id !== Number(payload))}
         default:
             return {
                 ...state,
             }
     }
 }
+
+export default rootReducer

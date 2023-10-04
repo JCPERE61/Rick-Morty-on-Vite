@@ -5,7 +5,7 @@ import styles from './Card.module.css';
 import { connect } from 'react-redux';
 import { useState } from 'react';
 
-function Card({id, name, status, species, gender, origin, image, onClose}) {
+function Card({id, name, status, species, gender, origin, image, onClose, addFav, removeFav, myFavorites}) {
    
    const [isFav,setIsFav] = useState(false);
 
@@ -28,11 +28,14 @@ function Card({id, name, status, species, gender, origin, image, onClose}) {
    return (
        <div className={styles.Card}>
          <div id='header'>
-            <button onClick={()=> onClose(id)}>X</button>
-         </div>   
 
          {isFav ? (<button onClick={handleFavorite}>❤️</button>) : 
                   (<button onClick={handleFavorite}>🤍</button>)  }
+
+         <button onClick={()=> onClose(id)}>X</button>
+         </div>   
+
+        
 
          <Link to={`/detail/${id}`} ><h1>{name}</h1></Link>
           <img src={image} alt='' />
@@ -49,14 +52,14 @@ function Card({id, name, status, species, gender, origin, image, onClose}) {
 
 const mapDispatchToProps = (dispatch) => {
    return 
-   {addFavorites:(character) => {dispatch(addFav(character))};
-   removeFavorites:(id)=>{ dispatch(removeFav(id));}
+   {addFav:(character) => {dispatch(addFav(character))};
+   removeFav:(id)=>{ dispatch(removeFav(id));}
    }
 
 
-const mapStateToProps = () => {
+const mapStateToProps = (state) => {
    return {
-      myFavorites:{ ...state}
+      myFavorites:state.myFavorites
    }
 }
 

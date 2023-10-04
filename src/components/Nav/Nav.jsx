@@ -1,3 +1,4 @@
+import SearchBar from '../SearchBar/SearchBar';
 import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
