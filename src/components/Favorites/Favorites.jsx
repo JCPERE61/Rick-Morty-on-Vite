@@ -1,4 +1,9 @@
-const Favorites = ({myFavorites}) => {
+import { useSelector } from "react-redux";
+
+export const Favorites = ({myFavorites}) => {
+
+    const myFavorites = useSelector ((state) => state.myFavorites);
+
     return (
         <div>
             {myFavorites.map (({id, name, status, species, gender, origin, image}) => {
@@ -18,10 +23,4 @@ const Favorites = ({myFavorites}) => {
       }
     </div>
     )
-}
-const mapStateToProps= () =>{
-    return {
-        myFavorites: state.myFavorites
-    }
-
 }
