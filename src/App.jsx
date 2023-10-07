@@ -55,7 +55,7 @@ function App() {
    return (
       <div className='App'>
 
-            {path !== '/' && <Nav onSearch={onSearch}/>}
+            {(path !== '/') && <Nav onSearch={onSearch}/>}
             <Routes>
             <Route path='/' element={<Form />} />;
             {/*    <Route path='/' element={<Form login={login}/>} />; */}

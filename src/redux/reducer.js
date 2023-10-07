@@ -1,4 +1,4 @@
-import { ADD_FAV, REMOVE_FAV} from './actions';
+import { ADD_FAV, REMOVE_FAV, FILTER, ORDER} from './actions';
 
 const initialState = {
     myFavorites:[],
@@ -14,6 +14,10 @@ function rootReducer(state=initialState,{type,payload}) {
             return {
                 ...state,
                 myFavorites:state.myFavorites.filter( character => character.id !== Number(payload))}
+        case FILTER:
+            return {
+                
+            }
         default:
             return {
                 ...state,
