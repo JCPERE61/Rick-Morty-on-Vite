@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import { addFav,removeFav } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 
 import styles from './Card.module.css';
 
 
-export default function Card({id, name, status, species, gender, origin, image, onClose, addFav, removeFav, myFavorites}) {
+export default function Card({id, name, status, species, gender, origin, image, onClose}) {
    
    const [isFav,setIsFav] = useState(false);
 
@@ -26,7 +26,7 @@ export default function Card({id, name, status, species, gender, origin, image, 
 
    useEffect(() => {
       myFavorites.forEach((fav) => {
-         if (fav.id === props.id) {
+         if (fav.id === id) {
             setIsFav(true);
          }
       });
@@ -41,9 +41,7 @@ export default function Card({id, name, status, species, gender, origin, image, 
 
          <button onClick={()=> onClose(id)}>X</button>
          </div>   
-
-        
-
+       
          <Link to={`/detail/${id}`} ><h1>{name}</h1></Link>
           <img src={image} alt='' />
           <div className={styles.various}>
