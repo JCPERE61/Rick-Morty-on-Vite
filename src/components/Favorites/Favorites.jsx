@@ -1,10 +1,9 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
 import { filterCards, orderCards } from "../../redux/actions";
 import Card from "../Card/Card";
 
-export const Favorites = () => {
+export const Favorites = ({onClose, cerrado}) => {
 
     const myFavorites = useSelector ((state) => state.myFavorites);
     const dispatch = useDispatch();
@@ -38,7 +37,7 @@ export const Favorites = () => {
             </select>
         </div>
         
-            {myFavorites.map (({id, name, status, species, gender, origin, image}) => {
+            {!cerrado && myFavorites.map (({id, name, status, species, gender, origin, image, onClose}) => {
                 return (
                 <Card 
                     key={id}
@@ -49,6 +48,7 @@ export const Favorites = () => {
                     gender={gender}
                     origin={origin.name}
                     image={image}
+                    onClose={onClose}
                 />
                 )
             })

@@ -26,7 +26,7 @@ export default function Form({login}) {
      }
 
     return(
-        <form>
+        <form onSubmit={handleSubmit}>
         <div>
             <label htmlFor="email">Email:</label>
             <input
@@ -48,7 +48,7 @@ export default function Form({login}) {
         </div>         
 
                     
-        {Object.keys(errors).length === 0 && <button onSubmit={handleSubmit}>Submit</button>}
+        {Object.keys(errors).length === 0 && <button>Submit</button>}
 
         </form>
 

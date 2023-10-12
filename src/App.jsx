@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
 import About from './components/About/About';
@@ -13,6 +13,8 @@ function App() {
 
    const [characters,setCharacters] = useState([]);
    const [hecho,setHecho] = useState([]);
+   const [ultimo,setUltimo] = useState(0);
+   const [cerrado,setCerrado] = useState(false);
 
    const [access,setAccess] = useState(false);
 
@@ -28,14 +30,18 @@ function App() {
       }
    }
 
-   /* useEffect(() => {
+   useEffect(() => {
       !access && navigate('/');
-   }, [access]); */
+   }, [access]);
+  
+
+   axios("https://rickandmortyapi.com/api/character/").then(({ data }) =>{
+   setUltimo (data.info.count);
+   } )
 
    
    const onSearch = (id) => {
-      if (id > 0 && id<=826) {
-         
+      if (id > 0 && id<=ultimo) {         
          if(!hecho.includes(id)) {
             axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) =>
             setCharacters((oldChars) => [...oldChars, data]));
@@ -48,6 +54,8 @@ function App() {
    const onClose = (id) =>{
       const result = characters.filter(character=> Number(id) !== character.id)
       setCharacters(result);
+      setHecho(result);
+      setCerrado(true);
    };
 
    const location = useLocation();
@@ -60,10 +68,10 @@ function App() {
             <Routes>
             {/* <Route path='/' element={<Form />} />; */}
                <Route path='/' element={<Form login={login}/>} />;
-               <Route path='/home' element={<Cards onClose={onClose} characters={characters} /> } />;
+               <Route path='/home' element={<Cards onClose={onClose} cerrado={cerrado} characters={characters} /> } />;
                <Route path='/about' element={<About />} />;
                <Route path='/detail/:id' element={<Detail />} />;
-               <Route path='/favorites' element={<Favorites />} />;
+               <Route path='/favorites' element={<Favorites onClose={onClose} cerrado={cerrado}/>} />;
             </Routes>
       </div>
    );

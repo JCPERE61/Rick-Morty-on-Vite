@@ -35,8 +35,6 @@ export default function validation (userData) {
                 count2++
 
                 }
-                console.log(count1)
-
             if (count1 = 0) {
                 errors.password = "La contraseña tiene que tener al menos un número"} 
 
