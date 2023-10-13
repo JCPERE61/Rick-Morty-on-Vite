@@ -1,5 +1,7 @@
 .smsan {
+    display: flex;
     justify-content: center;
+    text-wrap: balance;
 }
 
 .smsan img {
@@ -8,7 +10,9 @@
 }
 
 .auth {
+    display: flex;
     justify-content: center;
+    text-wrap: balance;
 }
 
 .auth img {
@@ -17,7 +21,9 @@
 }
 
 .Dan {
+    display: flex;
     justify-content: center;
+    text-wrap: balance;
 }
 
 .Dan img {
@@ -26,7 +32,9 @@
 }
 
 .guest {
+    display: flex;
     justify-content: center;
+    text-wrap: balance;
 }
 
 .guest img {

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { filterCards, orderCards } from "../../redux/actions";
 import Card from "../Card/Card";
 
-export const Favorites = ({onClose, cerrado}) => {
+export const Favorites = ({cerrado}) => {
 
     const myFavorites = useSelector ((state) => state.myFavorites);
     const dispatch = useDispatch();
@@ -37,7 +37,7 @@ export const Favorites = ({onClose, cerrado}) => {
             </select>
         </div>
         
-            {!cerrado && myFavorites.map (({id, name, status, species, gender, origin, image, onClose}) => {
+            {myFavorites.map (({id, name, status, species, gender, origin, image, onClose}) => {
                 return (
                 <Card 
                     key={id}
@@ -49,6 +49,7 @@ export const Favorites = ({onClose, cerrado}) => {
                     origin={origin.name}
                     image={image}
                     onClose={onClose}
+                    cerrado={cerrado}
                 />
                 )
             })
