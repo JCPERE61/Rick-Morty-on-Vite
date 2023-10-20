@@ -10,9 +10,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./src/index.js"
   },
+  "keywords": [
+    "rick",
+    "back"
+  ],
   "author": "Juan Carlos Pere",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.5.1",
     "nodemon": "^3.0.1"
   }
 }

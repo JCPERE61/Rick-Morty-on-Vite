@@ -37,11 +37,13 @@ function rootReducer(state=initialState,{type,payload}) {
         case ORDER:
 
             const ordById = state.allCharacters.sort( (a, b) => {
-                if (payload === "A") {
-                    return a.id - b.id;
-                } else 
+                let may = b.id;
+                let min = a.id;
                 if (payload === "D") {
-                    return b.id - a.id;
+                    return may - min;
+                } else 
+                if (payload === "U") {
+                    return min - may;
                 }
                 return 0;
                 }

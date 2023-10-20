@@ -1,9 +1,10 @@
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import React, {useState} from "react";
+import { useSelector,  useDispatch} from "react-redux";
 import { filterCards, orderCards } from "../../redux/actions";
 import Card from "../Card/Card";
+import styles from './Favorites.module.css';
 
-export const Favorites = ({cerrado}) => {
+const Favorites = ({onClose}) => {
 
     const myFavorites = useSelector ((state) => state.myFavorites);
     const dispatch = useDispatch();
@@ -11,7 +12,7 @@ export const Favorites = ({cerrado}) => {
     const handlerOrder = (event) => {
         const order = event.target.value;
         dispatch(orderCards(order))
-    }
+     }
 
     const handlerFilter = (event) => {
         const filter = event.target.value;
@@ -20,14 +21,15 @@ export const Favorites = ({cerrado}) => {
 
     return (
     <>        
-        <div>
+        <div className={styles.selectors}>
+        <div className={styles.order}>
             <select name="" id=" " onChange={handlerOrder}>
-                <option value="A">Ascendente</option>
-                <option value="D">Descendente</option>
+                <option value="U">Ascendente</option>
+                <option value="A">Descendente</option>
             </select>
         </div>
 
-        <div>
+        <div className={styles.order}>
             <select name="" id="" onChange={handlerFilter}>
                 <option value="Todos">All</option>
                 <option value="Male">Male</option>
@@ -36,8 +38,13 @@ export const Favorites = ({cerrado}) => {
                 <option value="unknown">unknown</option>
             </select>
         </div>
-        
-            {myFavorites.map (({id, name, status, species, gender, origin, image, onClose}) => {
+
+       <div className={styles.boton}><button >Mostrar</button></div> 
+
+        </div> 
+
+        <div className={styles.allCards}>
+            {myFavorites.map (({id, name, status, species, gender, origin, image}) => {
                 return (
                 <Card 
                     key={id}
@@ -49,11 +56,17 @@ export const Favorites = ({cerrado}) => {
                     origin={origin.name}
                     image={image}
                     onClose={onClose}
-                    cerrado={cerrado}
                 />
                 )
-            })
-      }
+                })
+            }
+
+            
+        </div>      
+        
+            
     </>    
     )
 }
+
+export default Favorites;

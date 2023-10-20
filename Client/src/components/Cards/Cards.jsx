@@ -1,11 +1,12 @@
+import React from 'react';
 import Card from '../Card/Card';
 import styles from './Cards.module.css';
 
-export default function Cards({characters, onClose}) {
-   
-   return (
+export default function Cards({characters,onClose}) {
+
+    return (
    <div className={styles.allCards}>
-      {characters.map (({id, name, status, species, gender, origin, image,onClose}) => {
+      {characters.map (({id, name, status, species, gender, origin, image}) => {
          return (
             <Card 
                key={id}
@@ -17,7 +18,8 @@ export default function Cards({characters, onClose}) {
                origin={origin.name}
                image={image}
                onClose={onClose}
-            />)
+            />
+            )
       }
       )}
    </div>);

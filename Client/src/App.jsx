@@ -1,24 +1,23 @@
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
+import { useDispatch } from 'react-redux';
 import About from './components/About/About';
 import Cards from './components/Cards/Cards.jsx';
 import Nav from './components/Nav/Nav';
 import Detail from './components/Detail/Detail';
 import Form from './components/Form/Form';
-import { Favorites } from './components/Favorites/Favorites';
+import Favorites from './components/Favorites/Favorites';
+import { removeFav } from './redux/actions';
+
 
 function App() {
 
    const [characters,setCharacters] = useState([]);
 
-   const [ordChar,setOrdChar] = useState ({
-      hecho: [],
-      ultimo: 0,
-      cerrado:false
-   });
-
+   const[hecho,setHecho] = useState([]);
+   
    const [access,setAccess] = useState(false);
 
    let EMAIL = 'jcpere@gmail.com';
@@ -33,32 +32,43 @@ function App() {
       }
    }
 
+   function logout() {
+      setAccess(false);
+         navigate('/');
+
+   }
+
    useEffect(() => {
       !access && navigate('/');
    }, [access]); 
 
-   axios("https://rickandmortyapi.com/api/character/").then(({ data }) =>{
-   setOrdChar ({...ordChar,ultimo: data.info.count});
-   })
-
-   let cambios = ordChar.hecho;
-
+   
    const onSearch = (id) => {
-      if (id > 0 && id<=ordChar.ultimo) {         
-         if(!cambios.includes(id)) {
-            axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) =>
-            setCharacters((oldChars) => [...oldChars, data]));
-            setOrdChar([...cambios,id])
-            } else {window.alert('¡Ya se ha mostrado personaje con este ID!')};
-
-         } else {window.alert('¡No hay personajes con este ID!')}
+      axios.get(`http://localhost:3001/rickandmorty/character/${id}`)
+      .then((res) => {
+              if(!hecho.includes(id)){
+               setCharacters((oldChars) => [...oldChars, res.data]);
+               setHecho([...hecho,id]);
+            } else {window.alert('¡Ya se ha mostrado personaje con este ID!')}},
+            (reason) => {
+               alert (reason.response.data)}
+            );      
    }
 
+   /*  console.log(cerrado) */
+
+   const dispatch = useDispatch();
+
    const onClose = (id) =>{
-      const result = characters.filter(character=> Number(id) !== character.id)
-      setCharacters(result);
-      setOrdChar({...ordChar,cerrado:true,hecho:result});
+      const filterChar = characters.filter(character=> Number(id) !== character.id);
+      setCharacters(filterChar);
+      dispatch(removeFav(id));
+   /*    setCerrado(true);*/
+   /*    setHecho(result);  */
+
    };
+
+  
 
    const location = useLocation();
    const path = location.pathname;
@@ -66,14 +76,13 @@ function App() {
    return (
       <div className='App'>
 
-            {(path !== '/') && <Nav onSearch={onSearch}/>}
+            {(path !== '/') && <Nav onSearch={onSearch} logout={logout}/>}
             <Routes>
-            {/* <Route path='/' element={<Form />} />; */}
                <Route path='/' element={<Form login={login}/>} />;
-               <Route path='/home' element={<Cards onClose={onClose} cerrado={ordChar.cerrado} characters={characters} /> } />;
+               <Route path='/home' element={<Cards characters={characters} onClose={onClose} /> } />;
                <Route path='/about' element={<About />} />;
                <Route path='/detail/:id' element={<Detail />} />;
-               <Route path='/favorites' element={<Favorites onClose={onClose} cerrado={ordChar.cerrado}/>} />;
+               <Route path='/favorites' element={<Favorites onClose={onClose}/>} />;
             </Routes>
       </div>
    );
