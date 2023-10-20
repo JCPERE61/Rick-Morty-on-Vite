@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { addFav,removeFav } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState,useEffect } from 'react';
+import React, { useState,useEffect } from 'react';
 
 import styles from './Card.module.css';
 
@@ -33,11 +33,12 @@ export default function Card({id, name, status, species, gender, origin, image, 
    }, [myFavorites]);
 
    return (
+
        <div className={styles.Card}>
          <div id='header'>
 
          {isFav ? (<button onClick={handleFavorite}>❤️</button>) : 
-                  (<button onClick={handleFavorite}>🤍</button>)  }
+                  (<button onClick={handleFavorite}>🤍</button>) }
 
          <button onClick={()=> onClose(id)}>X</button>
          </div>   
@@ -52,5 +53,6 @@ export default function Card({id, name, status, species, gender, origin, image, 
           </div>
           
        </div>
-    );
- }
+
+    )
+ };
