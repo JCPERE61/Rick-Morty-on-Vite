@@ -47,6 +47,12 @@ function App() {
          navigate('/');
    }
 
+   function logout() {
+      setAccess(false);
+         navigate('/');
+
+   }
+
    useEffect(() => {
       !access && navigate('/');
    }, [access]); 

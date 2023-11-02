@@ -18,9 +18,12 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^1.5.1",
+<<<<<<< HEAD
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "morgan": "^1.10.0",
+=======
+>>>>>>> e5045fb352c67e0046eab24c2dc371d0fdca9217
     "nodemon": "^3.0.1"
   }
 }
