@@ -20,8 +20,8 @@ function App() {
    
    const [access,setAccess] = useState(false);
 
-   let EMAIL = 'jcpere@gmail.com';
-   let PASSWORD = 'Henry2023';
+   /* let EMAIL = 'jcpere@gmail.com';
+   let PASSWORD = 'Henry2023'; */
 
    const navigate = useNavigate();
 
@@ -45,7 +45,6 @@ function App() {
    function logout() {
       setAccess(false);
          navigate('/');
-
    }
 
    useEffect(() => {
