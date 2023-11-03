@@ -43,8 +43,6 @@ function rootReducer(state=initialState,{type,payload}) {
         case ORDER:
 
             const ordById = state.allCharacters.sort( (a, b) => {
-                let may = b.id;
-                let min = a.id;
                 if (payload === "D") {
                     if(a.id < b.id) return 1;
                     if(b.id < a.id) return -1;
