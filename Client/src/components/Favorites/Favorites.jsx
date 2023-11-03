@@ -24,8 +24,8 @@ const Favorites = ({onClose}) => {
         <div className={styles.selectors}>
         <div className={styles.order}>
             <select name="" id=" " onChange={handlerOrder}>
-                <option value="U">Ascendente</option>
-                <option value="A">Descendente</option>
+                <option value="A">Ascendente</option>
+                <option value="D">Descendente</option>
             </select>
         </div>
 

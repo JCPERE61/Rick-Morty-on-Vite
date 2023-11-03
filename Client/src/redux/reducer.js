@@ -46,12 +46,15 @@ function rootReducer(state=initialState,{type,payload}) {
                 let may = b.id;
                 let min = a.id;
                 if (payload === "D") {
-                    return may - min;
-                } else 
-                if (payload === "U") {
-                    return min - may;
-                }
-                return 0;
+                    if(a.id < b.id) return 1;
+                    if(b.id < a.id) return -1;
+                    return 0;
+                    } else 
+                if (payload === "A") {
+                    if(a.id > b.id) return 1;
+                    if(b.id > a.id) return -1;
+                    return 0;
+                    }
                 }
             );
 
