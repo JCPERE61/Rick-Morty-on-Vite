@@ -1,21 +1,15 @@
-const server = require ('./app');
-const PORT = process.env.PORT || 3001;
-
- 
-server.listen(PORT, () => {
-   console.log('Server raised in port: ' + PORT);
-});
-
-
-/* require('dotenv').config();
+require('dotenv').config();
 const express = require('express');
-const server = require ('./app')
+const server = express();
 const morgan = require('morgan');
 const router=require('./routes/index');
+const compression = require('compression');
+const bodyparser = require('body-parser');
 
-const PORT = process.env.PORT || 3001;
 
 server.use(morgan('dev'));
+server.use(bodyparser.urlencoded({ extended:true}))
+server.use(compression());
 
 server.use((req, res, next) => {
    res.header('Access-Control-Allow-Origin', '*');
@@ -34,8 +28,6 @@ server.use((req, res, next) => {
 server.use(express.json());
 
 server.use( "/rickandmorty",router)
- */
 
 
-    
-   
+module.exports = server;
