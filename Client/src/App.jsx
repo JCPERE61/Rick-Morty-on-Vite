@@ -16,21 +16,15 @@ function App() {
 
    const [characters,setCharacters] = useState([]);
 
+   // Creado estado que guarda los caracteres ya agregados para control de que 
+   // no se repitan
+
    const[hecho,setHecho] = useState([]);
-   
+
+   // Estado del acceso a /home
    const [access,setAccess] = useState(false);
 
-   /* let EMAIL = 'jcpere@gmail.com';
-   let PASSWORD = 'Henry2023'; */
-
    const navigate = useNavigate();
-
-   /* const login = (userData) => {
-      if (userData.email === EMAIL && userData.password === PASSWORD) {
-         setAccess(true);
-         navigate('/home');
-      }
-   } */
 
 async function login(userData) {
 
@@ -38,18 +32,16 @@ async function login(userData) {
       const { email, password } = userData;
       const URL = 'http://localhost:3001/rickandmorty/login/';
 
-      const data = await axios(URL + `?email=${email}&password=${password}`);
-
-  /*  const { access } = data; */
-      setAccess(data);         
+      const { data } = await axios(URL + `?email=${email}&password=${password}`);
+      const { access } = data;
+      setAccess(access);         
       access && navigate('/home');
 
    } catch (error) {
-      
+      alert("Datos incorrectos")
    }
    
-   };
-   
+   };   
 
    function logout() {
       setAccess(false);
@@ -62,16 +54,19 @@ async function login(userData) {
    }, [access]); 
 
    
-   const onSearch = (id) => {
-      axios.get(`http://localhost:3001/rickandmorty/character/${id}`)
-      .then((res) => {
-              if(!hecho.includes(id)){
+   const onSearch = async (id) => {
+
+      const { data } = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`)
+
+      setCharacters((oldChars) => [...oldChars, data]);
+      
+         /*      if(!hecho.includes(id)){
                setCharacters((oldChars) => [...oldChars, res.data]);
                setHecho([...hecho,id]);
             } else {window.alert('¡Ya se ha mostrado personaje con este ID!')}},
             (reason) => {
                alert (reason.response.data)}
-            );      
+            );       */
    }
 
    /*  console.log(cerrado) */
