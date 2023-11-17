@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import validation from "../../validation";
+import styles from './Form.module.css';
 
 
 export default function Form({login}) {
@@ -27,8 +28,8 @@ export default function Form({login}) {
      }
 
     return(
-        <form onSubmit={handleSubmit}>
-        <div>
+        <form onSubmit={handleSubmit} className={styles.container}>
+        <div className={styles.label}>
             <label htmlFor="email">Email:</label>
             <input
                 type="text" 
@@ -38,7 +39,7 @@ export default function Form({login}) {
         {errors.email && <p>{errors.email}</p>}
         </div>
 
-        <div>
+        <div className={styles.label}> 
             <label htmlFor="password">Password:</label>
             <input
                 type="password" 

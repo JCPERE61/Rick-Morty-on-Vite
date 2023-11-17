@@ -1,43 +1,87 @@
-.smsan {
+.content {
     display: flex;
     justify-content: center;
-    text-wrap: balance;
+    width: 1300px;
+    padding:15px 13px 0px 230px;
+    flex-direction: column;
+    margin-left: 20px;
 }
 
-.smsan img {
-    height: 168px;
-    width:299px;
-}
-
-.auth {
+h5 {
     display: flex;
     justify-content: center;
-    text-wrap: balance;
+    margin:0px;
+    font-size: 30px;
+    font-weight: 400;
 }
 
-.auth img {
-    height:159px;
-    width:318px;
+.subContents {
+    display: flex;
+    flex-direction: row;
+
 }
 
-.Dan {
+.contLeft {
     display: flex;
     justify-content: center;
-    text-wrap: balance;
+    width: 1000px;
+    height:545px;
+    padding: 20px 20px 0px 10px;
+    flex-direction: column;
+    margin-left: 5px;
 }
 
-.Dan img {
-    height:161px;
-    width:312px;
-}
-
-.guest {
+.contRight {
     display: flex;
     justify-content: center;
-    text-wrap: balance;
+    width: 225px;
+    padding: 20px 10px 250px 10px;
+    flex-direction: column;
+    margin-left: 5px;
 }
 
-.guest img {
-    height:168px;
-    width:300px;
+h6 {
+    display: flex;
+    justify-content: center;
+    margin:0px;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.division {
+    display: flex;
+    flex-direction: row;
+    width: 1000px;
+}
+
+.litera {
+    display: grid;
+    grid-template-columns:730px 20px;
+    width:800px;
+    padding:10px;
+    font-size: 14px;
+    font-weight:300;
+    border: black;
+    border-width: 15px;
+    border-color: black;
+}
+
+.litDes {
+    display: flex;
+    width:80px;
+    padding:10px;
+    font-size: 14px;
+    font-weight:300;
+    border: black;
+    border-width: 15px;
+    border-color: black;
+}
+
+span{
+    width: 340px;
+}
+
+.imagen img {
+    height: 126px;
+    width:225px;
 }

@@ -35,7 +35,7 @@ export default function Card({id, name, status, species, gender, origin, image, 
    return (
 
        <div className={styles.Card}>
-         <div id='header'>
+         <div className={styles.header}>
 
          {isFav ? (<button onClick={handleFavorite}>❤️</button>) : 
                   (<button onClick={handleFavorite}>🤍</button>) }
@@ -43,7 +43,7 @@ export default function Card({id, name, status, species, gender, origin, image, 
          <button onClick={()=> onClose(id)}>X</button>
          </div>   
        
-         <Link to={`/detail/${id}`} ><h1>{name}</h1></Link>
+         <Link className={styles.link} to={`/detail/${id}`} >{name}</Link>
           <img src={image} alt='' />
           <div className={styles.various}>
             <h2>{status}</h2>

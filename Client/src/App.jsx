@@ -56,20 +56,19 @@ async function login(userData) {
    
    const onSearch = async (id) => {
 
-      const { data } = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`)
-
-      setCharacters((oldChars) => [...oldChars, data]);
-      
-         /*      if(!hecho.includes(id)){
-               setCharacters((oldChars) => [...oldChars, res.data]);
-               setHecho([...hecho,id]);
-            } else {window.alert('¡Ya se ha mostrado personaje con este ID!')}},
-            (reason) => {
-               alert (reason.response.data)}
-            );       */
+      try {
+         const { data } = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`)
+         
+         if(!hecho.includes(id)){
+            setCharacters((oldChars) => [...oldChars, data]);
+            setHecho([...hecho,id]);
+         } else 
+         {window.alert('¡Ya se ha mostrado personaje con este ID!')}
+      }
+      catch (error){
+         alert('No existe personaje con ese ID')
+         }
    }
-
-   /*  console.log(cerrado) */
 
    const dispatch = useDispatch();
 

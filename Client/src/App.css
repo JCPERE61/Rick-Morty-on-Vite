@@ -1,12 +1,7 @@
-#root {
-  width: 300px;
-  margin: 0 auto;
-  padding: 0.5rem;
-  text-align: center;
-}
-
 .App {
+  width: 1350px;
   display: flex;
   flex-direction: column;
-  text-align: center;
+  align-items: center;
+  padding-left: 0px;
 }
