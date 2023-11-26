@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const server = express();
 const morgan = require('morgan');
-const router=require('./routes/index');
+const router = require('./routes/index');
 const compression = require('compression');
 const bodyparser = require('body-parser');
 
