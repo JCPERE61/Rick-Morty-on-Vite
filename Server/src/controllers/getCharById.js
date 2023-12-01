@@ -1,39 +1,23 @@
 const axios = require('axios');
-// const URL = process.env.result;
-const URL = 'https://rickandmortyapi.com/api/character/';
+//const URL = process.env.API_URL;
+const API_KEY = process.env.API_KEY;
+const API_URL = 'rym2.up.railway.app/api/character/';
 
-async function getCharById(req,res) {
+const getCharById = async (req,res) => {
 
-   const id = Number(req.params.id);
-//    const {id} = req.params;
-
+    const id = Number(req.params.id);
+    
     try {
         
-    const {data} = await axios.get(`${URL}${id}`);
+    const {data} = await axios.get(`https://${API_URL}${id}?key=${API_KEY}`);
+
     const {name,status,gender,species,origin,image} = data;
     const character = {id,name,status,gender,species,origin,image}
 
     return character.name 
     ? res.status(200).json(character)
-    : res.status(404).send('Not found');
-    //const {data} = await axios('https://rickandmortyapi.com/api/character/10');
-
-    /*   if(data) {
-            let result = {
-                id,
-                status:data.status,
-                name:data.name,            
-                species:data.species,
-                origin:data.origin.name,
-                image:data.image,
-                gender:data.gender,
-                };
-
-        return res.status(200).json(result);
-            
-        } else {
-        return res.status(404).json({error:'Not found'}) 
-        } */
+    : res.status(404).json({error:'Not found'});
+       
 
     } catch(error) {
         return res.status(500).json({error:error.message});

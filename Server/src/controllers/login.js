@@ -1,14 +1,25 @@
-const {User} = require ('../DB_connection');
+const users = require('../utils/users');
 
-function login (req,res) {
+// const login = async (req,res) => {
+    const login = (req,res) => {
     const {email,password} = req.query;
+
+    const userValid = users.find(
+        (user) => user.email === email && user.password === password
+      );
+    
+      if (userValid) {
+        return res.json({ access: true });
+      }
+      return res.json({ access: false });
     
     
-    try {
+    
+    /* try {
         if(!email || !password) {
             return res.status(400).json({error:"Faltan datos"})};
 
-        const user = User.findOne({
+        const user = await User.findOne({
                 where: {
                     email
                 }
@@ -25,7 +36,7 @@ function login (req,res) {
             }
             catch (error){
                 res.status(500).json({error:error.message})
-            }        
+            }    */     
              
         }
 

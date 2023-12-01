@@ -76,9 +76,6 @@ async function login(userData) {
       const filterChar = characters.filter(character=> Number(id) !== character.id);
       setCharacters(filterChar);
       dispatch(removeFav(id));
-   /*    setCerrado(true);*/
-   /*    setHecho(result);  */
-
    };
 
   

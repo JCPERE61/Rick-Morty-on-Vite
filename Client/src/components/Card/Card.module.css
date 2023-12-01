@@ -22,24 +22,40 @@
 }
 
 .various {
-    padding: 10px;
+    padding: 10px; 
 }
 
+.image {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    float:right;
+    width:80px;
+    padding: 2px;        
+}
+
+.others {
+    h2 {
+        font-size: medium;
+        margin:0px;
+        padding:2px;
+    }
+    
+    h3 {
+        height:10px;
+        font-size: small;
+        margin:0px;
+        padding-top: 2px;
+    }
+}
 button {
     display:flex;
     margin-left: 180px;
-    width:33px;;
+    width:15px;;
 
 }
 
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width:60%;
-    padding: 5px;
-    
-}
+
 
 .link {
     margin:0px;
@@ -54,18 +70,6 @@ h1 {
     margin-left:30px;
     }
 
-h2 {
-    font-size: medium;
-    margin:0px;
-    padding:10px;
-}
-
-h3 {
-    height:10px;
-    font-size: small;
-    margin:0px;
-    padding-top: 10px;
-}
 
 
 

@@ -28,7 +28,7 @@ export default function Detail() {
         <h1>Loading...</h1>) : (
 
          <div>
-            <h1>Detalle de {name}</h1>
+            <h1>{name}'s detail</h1>
             <div className={styles.Card}>
                 <h1>{name}</h1>
                 <img src={image} alt='' />          

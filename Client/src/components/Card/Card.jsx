@@ -16,16 +16,16 @@ export default function Card({id, name, status, species, gender, origin, image, 
 
    const handleFavorite = () => {
       if(isFav) {
-         setIsFav(!isFav);
+         setIsFav(false);
          dispatch(removeFav(id))}
       else {
-         setIsFav(!isFav);
+         setIsFav(true);
          dispatch(addFav({id, name, status, species, gender, origin, image, onClose}))
       }
    }
 
    useEffect(() => {
-      myFavorites.forEach((fav) => {
+      myFavorites?.forEach((fav) => {
          if (fav.id === id) {
             setIsFav(true);
          }
@@ -44,12 +44,19 @@ export default function Card({id, name, status, species, gender, origin, image, 
          </div>   
        
          <Link className={styles.link} to={`/detail/${id}`} >{name}</Link>
-          <img src={image} alt='' />
+          
           <div className={styles.various}>
-            <h2>{status}</h2>
-            <h2>{species}</h2>
-            <h2>{gender}</h2>
-            <h3>{origin}</h3>   
+            <div className={styles.image}>
+               <img src={image} alt=''/>
+            </div>
+            <div className={styles.others}>
+               <h2>{status}</h2>
+               <h2>{species}</h2>
+               <h2>{gender}</h2>
+               <h3>{origin}</h3> 
+            </div>
+            
+              
           </div>
           
        </div>

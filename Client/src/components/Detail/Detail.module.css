@@ -9,6 +9,19 @@
     border: 1px;
     border-radius: 15px;
     background-color:cornflowerblue;
+
+    h2 {
+        font-size: medium;
+        margin:0px;
+        padding:10px;
+    }
+    
+    h3 {
+        height:10px;
+        font-size: small;
+        margin:0px;
+        padding-top: 10px;
+    }
 }
 
 button {
@@ -18,10 +31,10 @@ button {
 }
 
 img {
-    display: block;
+    display: flex;
     margin-left: auto;
     margin-right: auto;
-    width:60%;
+    max-width:60%;
     padding: 5px;
     
 }

@@ -31,7 +31,7 @@ export default function validation (userData) {
 
             for (let i=0;i<userData.password.length;i++){
 
-                if(!isNaN(userData.password[i])) {count1++}
+                if(isNaN(userData.password[i])) {count1++}
                 count2++
 
                 }

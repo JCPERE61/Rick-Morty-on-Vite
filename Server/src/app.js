@@ -2,14 +2,17 @@ require('dotenv').config();
 const express = require('express');
 const server = express();
 const morgan = require('morgan');
+const cors = require('cors');
+
 const router = require('./routes/index');
+
 const compression = require('compression');
 const bodyparser = require('body-parser');
-
 
 server.use(morgan('dev'));
 server.use(bodyparser.urlencoded({ extended:true}))
 server.use(compression());
+server.use(cors());
 
 server.use((req, res, next) => {
    res.header('Access-Control-Allow-Origin', '*');
@@ -27,7 +30,7 @@ server.use((req, res, next) => {
 
 server.use(express.json());
 
-server.use( "/rickandmorty",router)
+server.use( '/rickandmorty',router)
 
 
 module.exports = server;

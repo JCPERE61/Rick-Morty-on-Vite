@@ -1,4 +1,25 @@
-.container{
+.forms {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    h1{
+        display: flex;
+        align-content: center;
+    }
+}
+.container1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.separa {
+    margin:10px;
+    padding:10px;
+}
+
+.container2{
     border: black;
     border-width: 4px;
     border-style: solid;
@@ -9,6 +30,16 @@
     flex-wrap: wrap;
     width:300px;
     margin-top: 20px;
+
+    h6 {
+        margin:8px;
+    }
+}
+
+.imgsize {
+    align-items: center;
+    height: 126px;
+    width:225px;
 }
 
 .label {
@@ -16,10 +47,11 @@
     align-items: center;
     flex-direction: column;
     padding:8px;
-    width: 60px;
+    width: 218px;
     border-right: 5px;
     font-size: small;
     font-weight: 500;
+
 }
 
 input {
@@ -40,7 +72,7 @@ p {
     display: flex;
     align-content: center;
     margin:15px;
-    width: 400%;
+    width: 80%;
     font-weight: 100;
-    background-color: aliceblue;
+    background-color: aliceblue;    
 }

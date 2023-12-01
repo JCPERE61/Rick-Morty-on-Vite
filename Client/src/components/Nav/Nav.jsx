@@ -6,6 +6,7 @@ import styles from './Nav.module.css';
 export default function Nav({onSearch,logout}) {
     return (
         <div className={styles.divBar}>
+            <div className={styles.divLeft}>
             <button>
                 <Link to={'/about'}>About</Link>
             </button>
@@ -16,6 +17,9 @@ export default function Nav({onSearch,logout}) {
                 <Link to={'/favorites'}>Favorites</Link>
             </button>
             <button id='logout' onClick={logout}>Logout</button> 
+
+            </div>
+            
             <SearchBar onSearch={onSearch} />
         </div>        
     )  

@@ -1,48 +1,11 @@
-#root {
-  width: 1000px;
-  height: 650px;
-}
-
 body {
   width: 1350px;
+  height:632px;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.25;
-  font-weight: 200;
-  background-color: lightpink;
+  background-color:lightblue;
   margin: 0px;
   padding:0px;
   border:0px;
   } 
 
-button {
-  border-radius: 8px;
-  height: 30px;
-  border: 3px solid black;
-  padding: 5px;
-  font-size: 0.75em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a9a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
