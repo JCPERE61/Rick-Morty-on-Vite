@@ -1,7 +1,5 @@
 const axios = require('axios');
-//const URL = process.env.API_URL;
-const API_KEY = process.env.API_KEY;
-const API_URL = 'rym2.up.railway.app/api/character/';
+const { API_URL,API_KEY } = process.env;
 
 const getCharById = async (req,res) => {
 
@@ -9,7 +7,7 @@ const getCharById = async (req,res) => {
     
     try {
         
-    const {data} = await axios.get(`https://${API_URL}${id}?key=${API_KEY}`);
+    const {data} = await axios.get(`${API_URL}${id}?key=${API_KEY}`);
 
     const {name,status,gender,species,origin,image} = data;
     const character = {id,name,status,gender,species,origin,image}
