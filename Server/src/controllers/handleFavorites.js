@@ -18,7 +18,7 @@ function deleteFav(req,res) {
     myFavorites.filter((char) => char.id !== id);
 
     
-    console.log(myFavorites);
+    // console.log(myFavorites);
 
     res.status(200).json(myFavorites);
 };

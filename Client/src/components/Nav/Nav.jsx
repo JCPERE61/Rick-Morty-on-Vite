@@ -7,16 +7,17 @@ export default function Nav({onSearch,logout}) {
     return (
         <div className={styles.divBar}>
             <div className={styles.divLeft}>
-            <button>
+            <button className={styles.buttonNav}>
                 <Link to={'/about'}>About</Link>
             </button>
-            <button>
+            <button className={styles.buttonNav}>
                 <Link to={'/home'}>Home</Link>
             </button>            
-            <button>
+            <button className={styles.buttonNav}>
                 <Link to={'/favorites'}>Favorites</Link>
             </button>
-            <button id='logout' onClick={logout}>Logout</button> 
+           {/*  <button id='logout' onClick={logout}>Logout</button>  */}
+           <button className={styles.buttonNav} onClick={logout}>Logout</button>
 
             </div>
             

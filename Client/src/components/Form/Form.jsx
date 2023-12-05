@@ -52,11 +52,14 @@ export default function Form({login}) {
 
     return(
         <form className={styles.forms}>
-            <h1>Formularios de Rick and Morty</h1>
+            <div className={styles.titulo}>
+                <h1>Rick and Morty Registration and Input Forms</h1>
+            </div>
+            
             <div className={styles.container1}>
             
             <div className={styles.container2}>
-                <h6>Ingreso</h6>
+                <h6>User Logging</h6>
                 <div className={styles.label}>
                     <img src="./images/rick_1.png" alt="" className={styles.imgsize}/>
                     <label htmlFor="email">Email:</label>
@@ -77,13 +80,15 @@ export default function Form({login}) {
                     onChange={handleEChange} />
                     {errors.password && <p>{errors.password}</p>}
                 </div>              
-                    {Object.keys(errors).length === 0 && <button onClick={handleEntry}>Submit</button>}
+                    {Object.keys(errors).length === 0 && <button className={styles.buttonFM} onClick={handleEntry}>Submit</button>}
             </div>
 
-            <div><h6 className={styles.separa}>Rick and Morty</h6></div>
+            <div className={styles.separa}>
+                <h6>Warnings</h6>
+            </div>
             
             <div className={styles.container2}>
-                <h6>Registro</h6>
+                <h6>User Registration</h6>
                 <div className={styles.label}>
                     <img src="./images/morty.jpg" alt="" className={styles.imgsize}/>
                     <label htmlFor="email">Email:</label>
@@ -104,7 +109,7 @@ export default function Form({login}) {
                     onChange={handleRChange} />
                     {errorsReg.password && <p>{errorsReg.password}</p>}
                 </div>              
-                    {Object.keys(errorsReg).length === 0 && <button onClick={handleReg}>Submit</button>}
+                    {Object.keys(errorsReg).length === 0 && <button className={styles.buttonFM} onClick={handleReg}>Submit</button>}
             </div>
             </div> 
         </form>  

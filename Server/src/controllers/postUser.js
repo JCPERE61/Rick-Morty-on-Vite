@@ -1,8 +1,10 @@
-const User = require ('../DB_connection');
+const {User} = require ('../DB_connection');
 
 async function postUser (req,res) {
 
     const { email,password } = req.body;
+
+    console.log('email',email,'pass',password);
 
     if(!email || !password) {
         return res.status(400).json({error: "Faltan datos"})

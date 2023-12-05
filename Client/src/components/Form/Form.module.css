@@ -1,11 +1,19 @@
 .forms {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    
-    h1{
-        display: flex;
-        align-content: center;
+    justify-content: center;  
+}
+
+.titulo {
+    display: flex;
+    margin: 15px 100px 0px 100px;
+    background-color: white;
+    border-width: 2px;
+    border-style: solid;
+    padding:15px;
+
+    h6 {
+        margin:50px;
     }
 }
 .container1{
@@ -15,6 +23,10 @@
 }
 
 .separa {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width:200px;
     margin:10px;
     padding:10px;
 }

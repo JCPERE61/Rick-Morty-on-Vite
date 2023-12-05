@@ -36,28 +36,35 @@ export default function Card({id, name, status, species, gender, origin, image, 
 
        <div className={styles.Card}>
          <div className={styles.header}>
+            <img className={styles.image} src={image} alt=''/>
+            <div className={styles.butDiv}>            
+               {isFav ? (<button className={styles.buttonCD} onClick={handleFavorite}>❤️</button>) : 
+                  (<button className={styles.buttonCD} onClick={handleFavorite}>🤍</button>) }
 
-         {isFav ? (<button onClick={handleFavorite}>❤️</button>) : 
-                  (<button onClick={handleFavorite}>🤍</button>) }
-
-         <button onClick={()=> onClose(id)}>X</button>
+               <button className={styles.buttonCD} onClick={()=> onClose(id)}>X</button>
+            </div>         
+            
          </div>   
        
-         <Link className={styles.link} to={`/detail/${id}`} >{name}</Link>
+         
           
+          
+          <Link className={styles.link} to={`/detail/${id}`} >{name}</Link>
           <div className={styles.various}>
-            <div className={styles.image}>
-               <img src={image} alt=''/>
+          {gender !== "unknown" ? <h3>{gender} identified as {species} </h3>:<h3>{species} with unknown gender</h3>}
             </div>
-            <div className={styles.others}>
+            {/* <div className={styles.others}>
                <h2>{status}</h2>
                <h2>{species}</h2>
                <h2>{gender}</h2>
                <h3>{origin}</h3> 
             </div>
             
-              
-          </div>
+            {character.origin.name && character.origin.name !== "unknown" && 
+                ( <h2>Origin: {character.origin.name}</h2> )} */}
+            
+            
+         
           
        </div>
 

@@ -22,22 +22,31 @@ export default function Detail() {
         return setCharacter({});
      }, [id]);
 
-     const {name, image, status, species, gender, origin} = character
+     const {name, image, status, species, gender, origin,location} = character
     
     return loading? (
         <h1>Loading...</h1>) : (
 
          <div>
-            <h1>{name}'s detail</h1>
+            <h1>Character's detail</h1>
             <div className={styles.Card}>
+               <div>               
+                <img className={styles.imageChar} src={image} alt='' /> 
                 <h1>{name}</h1>
-                <img src={image} alt='' />          
-                <h2>{status}</h2>
-                <h2>{species}</h2>
-                <h2>{gender}</h2>
+               </div>
+               <div className={styles.others}>
+               {status !== "unknown" ?<h2>Status: {status}</h2>:<h2 className={styles.strange}>Character could be alive or dead, but nobody knows</h2>}
+                <h2>Specie: {species}</h2>
+                {gender !== "unknown" ? <h2> Gender: {gender}</h2>:<h2 className={styles.strange}>Character could be Male, Female or with no gender, but nobody knows</h2>}
+                {origin.name && origin.name !== "unknown" && 
+                ( <h2>Character comes from "{origin.name}". At this time, is living in "{location.name}"</h2> )}
+                <h2>Some Episodes: </h2>
 
-                {character.origin.name && character.origin.name !== "unknown" && 
-                ( <h2>{character.origin.name}</h2> )}
+               </div>
+
+               
+                         
+                
         </div> 
 
             

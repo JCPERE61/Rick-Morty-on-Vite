@@ -2,7 +2,7 @@ const {Favorite} = require ('../DB_connection');
 
 const postFav = async (req,res) =>{
 
-    const {id, name, origin, status, image, species, gender} = req.body;
+    const {name, origin, status, image, species, gender} = req.body;
 
 
     if(!name || !origin || !status || !image || !species || !gender) {
@@ -19,6 +19,7 @@ const postFav = async (req,res) =>{
 
             const allFavs = await Favorite.findAll();
 
+            
             return res.status(200).json(allFavs);            
         }
         catch (error){

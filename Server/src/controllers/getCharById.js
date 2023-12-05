@@ -9,8 +9,8 @@ const getCharById = async (req,res) => {
         
     const {data} = await axios.get(`${API_URL}${id}?key=${API_KEY}`);
 
-    const {name,status,gender,species,origin,image} = data;
-    const character = {id,name,status,gender,species,origin,image}
+    const {name,status,gender,species,origin,location, image} = data;
+    const character = {id,name,status,gender,species,origin, location, image}
 
     return character.name 
     ? res.status(200).json(character)
