@@ -5,6 +5,8 @@ const postUser = require ('../controllers/postUser');
 const postFav = require ('../controllers/postFav');
 const deleteFav = require('../controllers/deleteFav');
 const login = require('../controllers/login');
+// const getFav = require('../controllers/getFav');
+
 // const { postFav, deleteFav } = require('../controllers/handleFavorites');
 
 const router = Router();
@@ -16,6 +18,8 @@ router.get('/login', login)
 router.post('/login',postUser)
 
 router.post('/fav',postFav)
+
+// router.get('/fav', getFav)
 
 router.delete('/fav/:id',deleteFav)
 

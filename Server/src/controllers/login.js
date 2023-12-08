@@ -6,7 +6,7 @@ const login = async (req,res) => {
     
     try {
         if(!email || !password) {
-            return res.status(400).json({error:"Faltan datos"})};
+            return res.status(400).json({message:"Faltan datos"})};
 
         const user = await User.findOne({
                 where: {
@@ -15,16 +15,16 @@ const login = async (req,res) => {
             })
 
         if(!user){
-                return res.status(404).json({error:"Usuario no encontrado"});
+                return res.status(404).json({message:"Usuario no encontrado"});
             }
 
                 return user.password === password ?
                     res.status(200).json({access: true})
-                    : res.status(403).json({error:"Contraseña incorrecta"})
+                    : res.status(403).json({message:"Contraseña incorrecta"})
                 
             }
             catch (error){
-                res.status(500).json({error:error.message})
+                return res.status(500).json({error:error.message})
             }        
              
         }

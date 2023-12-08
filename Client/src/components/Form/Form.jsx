@@ -53,7 +53,8 @@ export default function Form({login}) {
     return(
         <form className={styles.forms}>
             <div className={styles.titulo}>
-                <h1>Rick and Morty Registration and Input Forms</h1>
+                <h1>Rick and Morty Form</h1>
+                {/*  <h1>Rick and Morty Registration and Input Forms</h1> */}
             </div>
             
             <div className={styles.container1}>
@@ -83,7 +84,7 @@ export default function Form({login}) {
                     {Object.keys(errors).length === 0 && <button className={styles.buttonFM} onClick={handleEntry}>Submit</button>}
             </div>
 
-            <div className={styles.separa}>
+        {/*     <div className={styles.separa}>
                 <h6>Warnings</h6>
             </div>
             
@@ -110,7 +111,7 @@ export default function Form({login}) {
                     {errorsReg.password && <p>{errorsReg.password}</p>}
                 </div>              
                     {Object.keys(errorsReg).length === 0 && <button className={styles.buttonFM} onClick={handleReg}>Submit</button>}
-            </div>
+            </div> */}
             </div> 
         </form>  
     )

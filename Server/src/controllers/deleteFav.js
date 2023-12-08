@@ -10,10 +10,14 @@ const deleteFav = async (req,res) => {
             return res.status(401).json({ error: "No ID entered"});
         }
 
-        await Favorite.destroy({
-            where: {id}
-        })
+        const idSearch = await Favorite.findByPk(Number(id));
 
+        if(idSearch) {
+            await Favorite.destroy({
+            where: {id}
+                })
+            }
+            
         const charsFavs = await Favorite.findAll();
 
         return res.status(200).json(charsFavs)

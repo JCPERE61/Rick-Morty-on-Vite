@@ -4,8 +4,6 @@ async function postUser (req,res) {
 
     const { email,password } = req.body;
 
-    console.log('email',email,'pass',password);
-
     if(!email || !password) {
         return res.status(400).json({error: "Faltan datos"})
     } else {
@@ -22,10 +20,10 @@ async function postUser (req,res) {
                 return res.status(409).json({error: "email already exists"})
             }
 
-            return res.status(200).json(user); 
+            return res.status(201).json(user); 
         }  
         catch (error) {
-            res.status(500).json({error:error.message})
+            return res.status(500).json({error:error.message})
     }
     
     }

@@ -33,7 +33,6 @@ async function login(userData) {
       const URL = 'http://localhost:3001/rickandmorty/login/';
 
       const { data } = await axios(URL + `?email=${email}&password=${password}`);
-      console.log(data);
       const { access } = data;
       setAccess(access);         
       access && navigate('/home');
@@ -74,8 +73,16 @@ async function login(userData) {
    const dispatch = useDispatch();
 
    const onClose = (id) =>{
+
+      console.log('personajes',characters);
+      console.log('ids',hecho);
+      
+
+
       const filterChar = characters.filter(character=> Number(id) !== character.id);
+      const filterHecho = hecho.filter(ident=>Number(id) !== Number(ident));
       setCharacters(filterChar);
+      setHecho(filterHecho);
       dispatch(removeFav(id));
    };
 

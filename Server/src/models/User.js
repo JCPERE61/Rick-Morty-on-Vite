@@ -7,6 +7,11 @@ module.exports = (sequelize) => {
         allowNull:false,
         primaryKey:true,
         autoIncrement:true,
+
+   // UUID Crea un dato aleatorio para el id y 
+   // se coloca el defaultValue en UUID4 hace unos caracteres especiales
+   // Otra opcion es INTEGER con autoincrement: true
+   
      },
      email:{
         type:DataTypes.STRING,
